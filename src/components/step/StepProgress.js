@@ -47,7 +47,7 @@ function ProgressBar({ order }) {
   return <span className="progress-bar" data-order={order}></span>;
 }
 
-export default function () {
+export default function StepProgress() {
   return (
     <RegisterContainer>
       {/* <!-- register-title --> */}
