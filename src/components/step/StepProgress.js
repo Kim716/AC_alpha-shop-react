@@ -1,4 +1,5 @@
 import React from "react";
+import iconCheck from "../../icons/icon_check.svg";
 
 function RegisterContainer({ children }) {
   return (
@@ -27,9 +28,15 @@ function ProgressGroup({ phase, order, label }) {
     <span className="progress-group" data-phase={phase}>
       <span className="progress-icon">
         <span className="text">{order}</span>
-        <svg className="icon cursor-point">
-          {/* <use xlink:href="#svg-icon-pg-complete"></use> */}
-        </svg>
+        <img
+          className="icon cursor-point"
+          src={iconCheck}
+          alt=""
+          style={{ width: "100px", height: "100px" }}
+        />
+        {/* <svg className="icon cursor-point"> */}
+        {/* <use xlink:href="#svg-icon-pg-complete"></use> */}
+        {/* </svg> */}
       </span>
       <span className="progress-label">{label}</span>
     </span>
