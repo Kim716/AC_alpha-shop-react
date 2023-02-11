@@ -1,70 +1,61 @@
 import React from "react";
 import iconCheck from "../../icons/icon_check.svg";
+import styles from "../../styles/step_progress.module.scss";
 
-function RegisterContainer({ children }) {
+function ProgressGroup({ phase, order, label, onProgress = "" }) {
+  return (
+    <span className={styles.progress_group} data-phase={phase}>
+      <span className={styles.progress_icon}>
+        <span className={`${styles.text} ${onProgress}`}>{order}</span>
+        <img
+          className="cursor-point d-none"
+          src={iconCheck}
+          alt=""
+          style={{ width: "10px", height: "10px" }}
+        />
+      </span>
+      <span className={`${styles.progress_label} ${onProgress}`}>{label}</span>
+    </span>
+  );
+}
+
+function ProgressBar({ order, onProgress }) {
+  return (
+    <span
+      className={`${styles.progress_bar} ${onProgress}`}
+      data-order={order}
+    ></span>
+  );
+}
+
+export default function StepProgress() {
   return (
     <section
       className="register-container col col-lg-6 col-sm-12"
       data-phase="1"
       data-total-price="0"
     >
-      {children}
-    </section>
-  );
-}
-
-function ProgressContainer({ children }) {
-  return (
-    <section className="progress-container col col-12">{children}</section>
-  );
-}
-
-function Title() {
-  return <h2 className="register-title col col-12">結帳</h2>;
-}
-
-function ProgressGroup({ phase, order, label }) {
-  return (
-    <span className="progress-group" data-phase={phase}>
-      <span className="progress-icon">
-        <span className="text">{order}</span>
-        <img
-          className="icon cursor-point"
-          src={iconCheck}
-          alt=""
-          style={{ width: "100px", height: "100px" }}
-        />
-        {/* <svg className="icon cursor-point"> */}
-        {/* <use xlink:href="#svg-icon-pg-complete"></use> */}
-        {/* </svg> */}
-      </span>
-      <span className="progress-label">{label}</span>
-    </span>
-  );
-}
-
-function ProgressBar({ order }) {
-  return <span className="progress-bar" data-order={order}></span>;
-}
-
-export default function StepProgress() {
-  return (
-    <RegisterContainer>
+      {" "}
+      {/*!!! 要摘開去合併 step 的檔案夾*/}
       {/* <!-- register-title --> */}
-      <Title />
-
+      <h2 className={`${styles.register_title} col col-12`}>結帳</h2>
       {/* <!-- register-progress --> */}
-      <ProgressContainer>
-        <ProgressGroup phase="address" order="1" label="寄送地址" />
+      <section className={`${styles.progress_container} col col-12`}>
+        <ProgressGroup
+          phase="address"
+          order="1"
+          label="寄送地址"
+          onProgress={styles.on_progress}
+        />
 
-        <ProgressBar order="1" />
+        <ProgressBar order="1" onProgress={styles.on_progress} />
 
         <ProgressGroup phase="shipping" order="2" label="運送方式" />
 
         <ProgressBar order="2" />
 
         <ProgressGroup phase="credit-card" order="3" label="付款資訊" />
-      </ProgressContainer>
-    </RegisterContainer>
+      </section>
+    </section>
   );
 }
