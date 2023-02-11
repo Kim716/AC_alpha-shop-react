@@ -1,17 +1,19 @@
 import React from "react";
-import "./components/step/styles/reset.module.scss";
-import "./components/step/styles/base.module.scss";
-import StepProgress from "./components/step/StepProgress";
-import Step1 from "./components/step/Step1";
-import ProgressControl from "./components/step/ProgressControl";
+import HeaderArea from "./components/header/HeaderArea";
+import Main from "./components/main/Main";
+import FooterArea from "./components/footer/FooterArea";
+
+// CSS
 // import "bootstrap/dist/css/bootstrap.min.css";
+import "./components/main/step/styles/reset.module.scss";
+import "./components/main/step/styles/base.module.scss";
 
 export default function () {
   return (
     <>
-      <StepProgress />
-      <Step1 />
-      <ProgressControl />
+      <HeaderArea />
+      <Main />
+      <FooterArea />
     </>
   );
 }

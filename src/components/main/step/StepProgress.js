@@ -1,5 +1,5 @@
 import React from "react";
-import iconCheck from "../../icons/icon_check.svg";
+import iconCheck from "../../../icons/icon_check.svg";
 import styles from "./styles/step_progress.module.scss";
 
 function ProgressGroup({ phase, order, label, onProgress = "" }) {
@@ -30,13 +30,7 @@ function ProgressBar({ order, onProgress }) {
 
 export default function StepProgress() {
   return (
-    <section
-      className="register-container col col-lg-6 col-sm-12"
-      data-phase="1"
-      data-total-price="0"
-    >
-      {" "}
-      {/*!!! 要摘開去合併 step 的檔案夾*/}
+    <>
       {/* <!-- register-title --> */}
       <h2 className={`${styles.register_title} col col-12`}>結帳</h2>
       {/* <!-- register-progress --> */}
@@ -56,6 +50,6 @@ export default function StepProgress() {
 
         <ProgressGroup phase="credit-card" order="3" label="付款資訊" />
       </section>
-    </section>
+    </>
   );
 }
