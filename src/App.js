@@ -1,6 +1,6 @@
 import React from "react";
-import "./styles/reset.module.scss";
-import "./styles/base.module.scss";
+import "./components/step/styles/reset.module.scss";
+import "./components/step/styles/base.module.scss";
 import StepProgress from "./components/step/StepProgress";
 import Step1 from "./components/step/Step1";
 import ProgressControl from "./components/step/ProgressControl";

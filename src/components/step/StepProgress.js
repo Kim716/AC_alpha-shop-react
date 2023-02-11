@@ -1,6 +1,6 @@
 import React from "react";
 import iconCheck from "../../icons/icon_check.svg";
-import styles from "../../styles/step_progress.module.scss";
+import styles from "./styles/step_progress.module.scss";
 
 function ProgressGroup({ phase, order, label, onProgress = "" }) {
   return (
