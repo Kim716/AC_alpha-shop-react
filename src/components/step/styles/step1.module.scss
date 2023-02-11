@@ -1,0 +1,33 @@
+.form_title {
+  margin-bottom: 1.5rem;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.input_line {
+  margin-bottom: 1.5rem;
+  justify-content: space-between;
+}
+
+.input_group {
+  & label {
+    margin-bottom: 0.5rem;
+    display: block;
+    font-size: 14px;
+    color: var(--grey-400);
+  }
+
+  & input,
+  select {
+    display: block;
+    padding: 14px 14px;
+    width: 100%;
+
+    border: 1px solid #000000;
+    border-radius: 4px;
+  }
+
+  & select {
+    color: var(--grey-400);
+  }
+}

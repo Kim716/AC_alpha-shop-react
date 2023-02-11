@@ -1,4 +1,6 @@
 import React from "react";
+import styles from "./styles/step1.module.scss";
+
 const appellations = [
   { value: "", content: "請選擇稱謂" },
   { value: "mr", content: "先生" },
@@ -41,17 +43,25 @@ const countys = [
 
 function Input({ lg, sm, label, title, type, placeholder }) {
   return (
-    <div className={`input-group input-w-lg-${lg} input-w-sm-s${sm}`}>
+    <>
       <label htmlFor={label}>{title}</label>
       <input type={type} placeholder={placeholder} id={label} />{" "}
       {/* !!! 要轉成 display block */}
-    </div>
+    </>
   );
 }
 
 function Select({ options, label, title }) {
   const optionsHTML = options.map((option) => {
-    return <option value={option.value}>{option.content}</option>;
+    return (
+      <option
+        value={option.value}
+        disabled={option.value === "" ? true : false}
+        selected={option.value === "" ? true : false}
+      >
+        {option.content}
+      </option>
+    );
   });
 
   return (
@@ -69,12 +79,12 @@ function Select({ options, label, title }) {
 export default function Step1() {
   return (
     <form className="col col-12" data-phase="address">
-      <h3 className="form-title">寄送地址</h3>
+      <h3 className={styles.form_title}>寄送地址</h3>
 
       <section className="form-body col col-12">
         {/* 第一行 */}
-        <div className="col col-12">
-          <div className="input-group input-w-lg-2 input-w-sm-s1">
+        <div className={`${styles.input_line} col col-12`}>
+          <div className={`${styles.input_group} input-w-lg-2 input-w-sm-s1`}>
             <Select
               options={appellations}
               label="select-appellation"
@@ -82,7 +92,7 @@ export default function Step1() {
             />
           </div>
 
-          <div className="input-group input-w-lg-4 input-w-sm-s2">
+          <div className={`${styles.input_group} input-w-lg-4 input-w-sm-s2`}>
             <Input
               label="input-name"
               title="姓名"
@@ -94,8 +104,8 @@ export default function Step1() {
         {/* 第一行end */}
 
         {/* 第二行 */}
-        <div className="col col-12">
-          <div className="input-group input-w-lg-3 input-w-sm-full">
+        <div className={`${styles.input_line} col col-12`}>
+          <div className={`${styles.input_group} input-w-lg-3 input-w-sm-full`}>
             <Input
               label="input-telephone"
               title="電話"
@@ -104,7 +114,7 @@ export default function Step1() {
             />
           </div>
 
-          <div className="input-group input-w-lg-3 input-w-sm-full">
+          <div className={`${styles.input_group} input-w-lg-3 input-w-sm-full`}>
             <Input
               label="input-email"
               title="Email"
@@ -116,12 +126,12 @@ export default function Step1() {
         {/* 第二行end */}
 
         {/* 第三行 */}
-        <div className="col col-12">
-          <div className="input-group input-w-lg-2 input-w-sm-full">
+        <div className={`${styles.input_line} col col-12`}>
+          <div className={`${styles.input_group} input-w-lg-2 input-w-sm-full`}>
             <Select options={countys} label="select-county" title="縣市" />
           </div>
 
-          <div className="input-group input-w-lg-4 input-w-sm-full">
+          <div className={`${styles.input_group} input-w-lg-4 input-w-sm-full`}>
             <Input
               lg="4"
               sm="full"
