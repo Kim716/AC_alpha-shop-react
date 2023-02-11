@@ -1,0 +1,65 @@
+$screen-break-point: 749.5px;
+
+section.button_group {
+  margin-top: 2rem;
+  padding-top: 24px;
+  border-top: 1px solid #e6e6eb;
+
+  button {
+    display: flex;
+    align-items: center;
+    height: 46px;
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    border-radius: 8px;
+    border-width: 0px;
+    padding: 0px;
+
+    & > svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    &.prev {
+      background-color: transparent;
+      line-height: 20px;
+      font-weight: 400;
+      color: #000000;
+
+      > svg {
+        margin-right: 12px;
+      }
+    }
+    &.next {
+      justify-content: center;
+      width: 174px;
+      font-weight: 500;
+      line-height: 17px;
+      background: var(--pink);
+      color: #ffffff;
+      margin-left: auto;
+
+      > svg {
+        margin-left: 12px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $screen-break-point) {
+  section.button_group {
+    button.next {
+      width: 156px;
+    }
+
+    &[data_phase="address"] {
+      button.next {
+        width: 100%;
+      }
+    }
+  }
+}
+
+section.button_group.d_none {
+  display: none;
+}
