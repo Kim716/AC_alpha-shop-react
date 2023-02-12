@@ -46,18 +46,18 @@ function Input({ lg, sm, label, title, type, placeholder }) {
     <>
       <label htmlFor={label}>{title}</label>
       <input type={type} placeholder={placeholder} id={label} />{" "}
-      {/* !!! 要轉成 display block */}
     </>
   );
 }
 
 function Select({ options, label, title }) {
-  const optionsHTML = options.map((option) => {
+  const optionsHTML = options.map((option, index) => {
     return (
       <option
+        key={index}
         value={option.value}
         disabled={option.value === "" ? true : false}
-        selected={option.value === "" ? true : false}
+        // selected={option.value === "" ? true : false}
       >
         {option.content}
       </option>
@@ -68,7 +68,7 @@ function Select({ options, label, title }) {
     <>
       <label htmlFor={label}>{title}</label>
       <div className="select-container">
-        <select id={label} required>
+        <select id={label} defaultValue="" required>
           {optionsHTML}
         </select>
       </div>

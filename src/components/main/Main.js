@@ -3,8 +3,8 @@ import CartArea from "./cart/CartArea";
 
 export default function Main() {
   return (
-    <main class="site-main">
-      <div class="main-container">
+    <main className="site-main">
+      <div className="main-container">
         <StepArea />
         <CartArea />
       </div>

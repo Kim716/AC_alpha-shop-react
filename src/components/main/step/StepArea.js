@@ -13,7 +13,7 @@ export default function StepArea() {
     >
       <StepProgress />
 
-      <section class="form-container col col-12">
+      <section className="form-container col col-12">
         <Step1 />
         {/* <Step2 /> */}
         {/* <Step3 /> */}
