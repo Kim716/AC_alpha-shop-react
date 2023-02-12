@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./styles/step1.module.scss";
 
 const appellations = [
@@ -64,11 +64,19 @@ function Select({ options, label, title }) {
     );
   });
 
+  const [textColor, setTextColor] = useState("var(--grey-300)");
+
   return (
     <>
       <label htmlFor={label}>{title}</label>
       <div className="select-container">
-        <select id={label} defaultValue="" required>
+        <select
+          id={label}
+          defaultValue=""
+          onChange={() => setTextColor("black")}
+          style={{ color: textColor }}
+          required
+        >
           {optionsHTML}
         </select>
       </div>
